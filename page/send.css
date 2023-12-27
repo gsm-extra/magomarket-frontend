@@ -1,0 +1,107 @@
+  .bt {
+      text-align: center;
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .file-label {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .file-label:hover {
+      background-color: #0056b3;
+    }
+    .file-button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .file-button:hover {
+      background-color: #0056b3;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #image_container {
+      text-align: center;
+    }
+    #image_container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .slider {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        display: none; /* 초기에는 숨김 */
+    }
+    .slide {
+        text-align: center;
+        max-width: 100%;
+        position: relative;
+        display: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img {
+        max-width: 50%;
+        height: auto;
+        border: solid 1px;
+    }
+    .slider-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 1;
+        display: block;
+    }
+    .slider-button-left {
+        left: 10px;
+    }
+    .slider-button-right {
+        right: 10px;
+    }
+    .remove-button {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .remove-button:hover {
+      background-color: #c82333;
+    }
+    .exit{
+      bottom: 85px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+    }

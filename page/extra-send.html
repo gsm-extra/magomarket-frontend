@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>게시 | mago market</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="send.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <form class="bt">
+    <!-- 이미지 표시 영역 -->
+    <div id="image_container" style="text-align: center;"></div>
+
+    <!-- 텍스트 입력창 -->
+    <input type="text" id="text" placeholder="내용을 입력하세요..." />
+
+    <!-- 게시물 제출 버튼 -->
+    <button class="file-button" type="button" onclick="submitPost()">제출</button>
+
+    <!-- 이미지 선택 버튼 -->
+    <label for="image" class="file-label">
+      <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" style="display: none;">
+      이미지 선택
+    </label>
+
+    <!-- 이미지 삭제 버튼 -->
+    <button class="remove-button" type="button" onclick="removeImage()">이미지 삭제</button>
+  </form>
+  
+  
+  <!-- 슬라이더에 관한 HTML 코드 -->
+  <div class="slider" id="slider-container">
+    <!-- 수정된 부분: 초기에는 아무 이미지가 없는 상태로 시작 -->
+    <button id="prevBtn" class="slider-button slider-button-left">이전</button>
+    <button id="nextBtn" class="slider-button slider-button-right">다음</button>
+    <script src="send.js"></script>
+  </div>
+  
+  <footer>
+    <img src="../images/exit.png" class="exit" width="50px" height="50px" OnClick="location.href='extra-home.html'">
+  </footer>
+</body>
+</html>

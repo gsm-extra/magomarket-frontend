@@ -1,0 +1,161 @@
+.border{
+  width: 505px;
+  height: 501px;
+  border: solid 0.5px #000000;
+  padding: 36px 47px 120px 35px;
+  border-radius: 10px;
+  transform:translate(95%,20%);
+}
+
+.Welcome- {
+    width: 132px;
+    height: 38px;
+    flex-grow: 0;
+    margin: 0 291px 29px 0;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+  }
+  .Sign-in-to {
+    width: 142px;
+    height: 47px;
+    flex-grow: 0;
+    margin: 0 118px 1px 0;
+    font-family: Poppins;
+    font-size: 31px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+  }
+  .gotothelogin {
+    width: 260px;
+    height: 24px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align:end;
+    color: rgb(85, 170, 231);
+  }
+  .usernickname {
+    width: 423px;
+    height: 92px;
+    flex-grow: 0;
+    margin: 0 0 38px;
+  }
+  .username {
+    width: 423px;
+    height: 92px;
+    flex-grow: 0;
+    margin: 0 0 38px;
+  }
+  .Un {
+    width: 390px;
+    height: 24px;
+    margin: 0 33px 9px 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+  }
+  .inputu {
+    width: 223px;
+    height: 29px;
+    margin: 9px 0 0;
+    padding: 19px 248px 19px 27px;
+    border-radius: 6px;
+    border: solid 0.6px #282828;
+    background-color: #fff;
+    vertical-align: middle;
+  }
+  .Enter-your-user-name {
+    width: 223px;
+    height: 29px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    vertical-align: middle;
+    color: #ababab;
+  }
+  .classroom{
+    margin: 15px 0 0;
+  }
+  .password{
+    width: 423px;
+    height: 92px;
+    flex-grow: 0;
+    margin: 0 0 38px;
+  }
+  .ps {
+    width: 390px;
+    height: 24px;
+    margin: 0 33px 9px 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+  }
+  .inputp {
+    width: 223px;
+    height: 29px;
+    margin: 9px 0 0;
+    padding: 19px 248px 19px 27px;
+    border-radius: 6px;
+    border: solid 0.6px #282828;
+    background-color: #fff;
+  }
+  .Loginbar {
+    width: 500px;
+    height: 67px;
+    flex-grow: 0;
+    padding: 17px 190px 16px;
+    border-radius: 6px;
+    background-color: #000;
+    color: white;
+  }
+  .Login{
+    width: 43px;
+    height: 24px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #fff;
+  }
+
+  .dd{
+    margin: 0 0 0;
+  }

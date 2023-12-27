@@ -1,0 +1,30 @@
+.scroll{
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.1vh;
+    padding: 6vh 4vh 5vh; 
+    height: 80vh; 
+    width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pictures{
+    max-width:50%;
+    max-height:50%;
+    object-fit: scale-down;
+}
+.return{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: right;
+    top: 1vh;
+    left: 10vh;
+    color: #a6a6a6;
+    font-size: 1.5vh;
+    font-weight: 400;
+}
+.write {
+    font-size: 1.7vh;
+}

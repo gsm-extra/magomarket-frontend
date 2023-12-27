@@ -1,0 +1,106 @@
+.profile{
+    border:1px solid rgb(187, 186, 186);  
+    padding: 60px 40px 50px;  
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    width: 432px;
+    height: 654px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.jl{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    text-align: left;
+    position: relative;
+    top: 1vh;
+    left: 17vh;
+    font-size: 1rem;
+}
+.il{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: left;
+    position: relative;
+    top: -10px;
+    left: 10px;
+    color: #a6a6a6;
+    font-size: 0.75em;
+    font-weight: 400;
+}
+progress {
+    width: 150px;
+    height: 10px;
+    display: flex;
+    margin-top: 7px;
+}
+.best {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    position: relative;
+    margin-top: -50px;
+}
+textarea{
+    border: 1px solid rgb(187, 186, 186);
+    width: 433px;
+    height: 6.25em;
+    resize: none;
+    background-color: #f0efef;
+}
+.plusButton{
+    width: 1.3vh;
+    height: 1.3vh;
+    left: 11vh;
+    position: relative;
+    top: -8.8vh;
+    border: solid 1px;
+}
+.save{
+    width:4vh;
+    height: 3vh;
+    position: relative;
+    bottom: 1vh;
+    left: 41.5vh;
+}
+.revise{
+    width:4vh;
+    height: 3vh;
+    position: relative;
+    bottom: 3vh;
+    left: 41.5vh;
+}
+#output{
+    font-size: 1rem;
+    position: relative;
+    bottom: 4.3rem;
+}
+/* 검색 */
+.search {
+    display: flex;
+    justify-content: center;
+}
+.search-bar{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: var(--medium);
+    padding: 15px 0px;
+    border: solid 3px black;
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar::placeholder {
+    color: rgb(0, 0, 0, 0.5);
+    font-size: var(--medium);
+}

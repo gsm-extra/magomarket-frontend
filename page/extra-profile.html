@@ -1,0 +1,32 @@
+<html>
+    <title>프로필 | mago market</title>
+    <link href="profile.css" rel="stylesheet" type="text/css">
+    <div class="profile" class="jsp">
+        <img id="profileImage" src="file:///C:/Users/User/Pictures/%EC%A0%80%EC%9E%A5%EB%90%9C%20%EC%82%AC%EC%A7%84/KakaoTalk_20230920_142206010.jpg" class="img"  style="vertical-align:middle;" onclick="changeProfileImage()">
+        <p class="jl" style="margin-top: -100;">닉네임 : 정승표</p>
+        <p class="jl"> 계정 : s23052@gsm.hs.kr</p>
+        <p class="jl"> 신뢰도 : <progress {color: blue;} value="50" min="0" max="100"></progress></p>
+        <p><h3>이번달 최고지출</h3></p>
+        <img src="file:///C:/Users/User/Pictures/%EC%A0%80%EC%9E%A5%EB%90%9C%20%EC%82%AC%EC%A7%84/%EA%B1%B4%ED%9D%AC%EC%98%B7.png" class="best">
+        <p class="jl" style="top: -50px"> 거래자: 진건희</p>
+        <label class="jl" style="top: -45px"><span OnClick="location.href='profile-plus.html'" style="color:#a6a6a6">더보기</span></label>
+        <div class="search">
+            <input class="search-bar" id="search-input" placeholder="닉네임을 입력하십시오" autocomplete="off"/>
+        </div>
+        <p class="jl"><h3>자기소개</h3></p>
+        <p hidden id="textbox" style="margin-top: -60;"><textarea id="myTextarea" rows="10" cols="50"></textarea></p>
+        <img src="file:///C:/Users/User/Pictures/%EC%A0%80%EC%9E%A5%EB%90%9C%20%EC%82%AC%EC%A7%84/+.png" class="plusButton" onclick="toggleBtn1()" id="plus"/>
+        <form>
+            <input hidden type="submit" value='저장' class="save" id="saveButton"/>
+            <div id="output"></div>
+        </form>
+        <form>
+            <input hidden type="submit" value="수정" class="revise" id="hideButton"/>
+            <div id="output"></div>
+        </form>
+    </div>
+    <footer>
+        <img src="../images/exit.png" width="50px" height="50px" OnClick="location.href='extra-home.html'">
+    </footer>
+    <script src="profile.js"></script>
+</html>

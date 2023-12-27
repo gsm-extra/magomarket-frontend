@@ -1,0 +1,61 @@
+
+:root {
+    --xlarge: 70px;
+    --large: 28px;
+    --medium: 18px;
+    --small: 16px;
+    --xsmall: 14px;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+
+.main-container .main-wrapper{
+    text-align: center;
+}
+
+/* 시계 */
+.today-info{
+    text-align: right;
+}
+.time{
+    font-size: var(--xlarge);
+    font-weight: 400;
+    margin-top: -15px;
+}
+.date{
+    font-size: var(--medium);
+    font-weight: 400;
+}
+
+
+/* 검색 */
+.search {
+    display: flex;
+    justify-content: center;
+}
+.search-bar{
+    background-color: rgba(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: var(--medium);
+    padding: 15px 0px;
+    border-radius: 30px;
+    border: 0px;
+    width: 600px;
+    text-align: center;
+    margin-top: -15px;
+    
+}
+
+.search-bar::placeholder {
+    color: rgb(0, 0, 0);
+    font-size: var(--medium);
+}
+
+.html{
+    background-color: rgb(175, 238, 255);
+}

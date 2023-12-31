@@ -290,5 +290,5 @@ function submitPost() {
   localStorage.setItem(savedPostNumber, postnumber);
 
   // 페이지 이동
-  window.location.href = "page/extra-home.html";
+  window.location.href = "extra-home.html";
 }

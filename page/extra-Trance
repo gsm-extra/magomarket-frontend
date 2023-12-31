@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Trance.css" type="text/css">
+  <title>거래 페이지</title>
+</head>
+<body>
+
+  <div class="transaction-page">
+    <h1>거래를 시작하세요</h1>
+
+    <!-- 이미지 표시 영역 -->
+    <div class="image-container" id="selectedImageContainer">
+      <!-- 클릭한 이미지가 여기에 나타납니다. -->
+    </div>
+
+    <!-- 거래 정보 입력 폼 -->
+    <form id="transactionForm">
+      <label for="transactionAmount">거래 금액:</label>
+      <input type="text" id="transactionAmount" placeholder="거래 금액을 입력하세요" required>
+
+      <label for="bankInfo">계좌 정보:</label>
+      <input type="text" id="bankInfo" placeholder="계좌 정보를 입력하세요" required>
+
+      <button type="submit">거래 시작</button>
+    </form>
+  </div>
+
+  <script src="Trance.js"></script>
+</body>
+</html>

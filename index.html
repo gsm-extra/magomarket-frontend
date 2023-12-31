@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="page/index.css" rel="stylesheet" type="text/css">
+    <link href="index.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form class="border" action="../page/extra-home.html">
-        <span class="Welcome-">Welcome !</span>
+    <form method="post" class="border" id="login-form"> 
+        <span class="Welcome-" id="one">Welcome !</span>
         <div class="dd"></div>
-        <span class="Sign-in-to">Login in to</span>
+        <span class="Sign-in-to" id="two">Login in to</span>
         <br>
         <span class="tlqkf">Now come get some new ideas</span>
         <br>
-        <span class="gotothesign" Onclick="location.href='../page/extra-membergaib.html'">Go to the sign up!</span>
+        <span class="gotothesign" Onclick="location.href='file:///C:/Users/User/Documents/extra/membergaib.html'">Go to the sign up!</span>
         <div class="classroom"></div>
-
+        <div>
         <div class="usernickname">
             <span class="Un">User nickname</span>
                 <input autocomplete="off" class="inputu" placeholder="Enter your user name" required id="nickname" name="nickname">
@@ -28,9 +28,8 @@
                 <input autocomplete="off" class="inputu" placeholder="Enter your password" minlength="8" maxlength="12" type="password" required id="password" name="password">
         </div>
 
-        <label class="Remember-me"><input type="checkbox" id="coco">Remember me</label>
-
-        <button class="Loginbar" id="button"><span class="Login">Login</span></button>
+        <input type="submit" class="Loginbar" id="button" type="submit"><span class="Login">Login</span></input>
     </form>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -1,46 +1,16 @@
 <html>
     <title>홈 | mago market </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-        .scroll{
-            text-align: center;
-            border: 1px solid rgb(255, 255, 255);
-            border-radius: 10px;
-            padding: 60px 40px 50px; 
-            height: 800px;
-            width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .jiji{
-            max-width:100%;
-            max-height:100%;
-            object-fit: scale-down;
-        }
-
-        .b{
-            width: 100px;
-            height: 100px;
-        }
-    </style>
+    <link href="home.css" rel="stylesheet" type="text/css">
     <div class="scroll" style="overflow-x:hidden" style="text-align: center;" class="jiji" id="scroll">
-        <img class="jiji" src="../images/Asi_01.png" style="text-align: center;">
-        <br>
-        <img class="jiji" src="../images/Ais_00.png">
-        <br>
-        <img class="jiji" src="../images/mm.jpg">
-        <br>
-        <img class="jiji" src="../images/extra4.png">
-        <br>
-        <img class="jiji" src="../images/KakaoTalk_20230713_092205297.jpg">
     </div>
-    <form method="post" id="picture" style="text-align: center;">
+    <form id="picture" style="text-align: center;">
         <img src="../images/chat.png" width="50px" height="50px" Onclick="location.href='extra-chat.html'">
-        <img src="../images/Group 1.png" width="50px" height="50px" OnClick="location.href='extra-send.html'">
+        <img src="../images/Group%201.png" width="50px" height="50px" OnClick="location.href='extra-send.html'">
         <img src="../images/profile.png" width="50px" height="50px" OnClick="location.href='extra-profile.html'">
     </form>
+    <script src="home.js"></script>
     <footer>
-        <img src="../images/exit.png" width="50px" height="50px">
+        <img src="../images/exit.png" width="50px" height="50px" id="exit" name="exit">
     </footer>
 </html>

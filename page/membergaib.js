@@ -23,7 +23,7 @@ function onLoginSubmit(event) {
   // 새로 가입한 사용자를 로그인 상태로 설정
   localStorage.setItem("currentLoggedInUser", userCount + 1);
 
-  window.location.href = "page/extra-home.html";
+  window.location.href = "extra-home.html";
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);

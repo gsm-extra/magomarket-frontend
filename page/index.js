@@ -25,7 +25,7 @@ function Check(event){
                 localStorage.removeItem(PAST);
             }, 0);
             setTimeout(function () {
-                window.location.href = "extra-home.html";
+                window.location.href = "page/extra-home.html";
             }, 0);
             return;
         }
@@ -38,7 +38,7 @@ const savedUsernickname = localStorage.getItem(`${USERNICKNAME_KEY}_${userCount}
 const savedPassword = localStorage.getItem(`${PASSWORD_KEY}_${userCount}`);
 
 if(savedUsernickname === null && savedPassword === null){
-    window.location.href="membergaib.html";
+    window.location.href="page/membergaib.html";
 }
 else{
     loginForm.addEventListener("submit", Check);

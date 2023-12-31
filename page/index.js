@@ -36,7 +36,6 @@ function Check(event){
 
 const savedUsernickname = localStorage.getItem(`${USERNICKNAME_KEY}_${userCount}`);
 const savedPassword = localStorage.getItem(`${PASSWORD_KEY}_${userCount}`);
-const savedHistory = localStorage.getItem(PAST);
 
 if(savedUsernickname === null && savedPassword === null){
     window.location.href="membergaib.html";

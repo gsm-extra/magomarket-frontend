@@ -56,5 +56,5 @@ function handleImageClick(selectedImageUrl) {
   localStorage.setItem('selectedImageUrl', selectedImageUrl);
 
   // 거래 페이지로 전환
-  window.location.href = 'page/extra-Trance.html'; // 거래 페이지의 HTML 파일 경로로 수정
+  window.location.href = 'extra-Trance.html'; // 거래 페이지의 HTML 파일 경로로 수정
 }

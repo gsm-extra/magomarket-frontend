@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 거래 신청 알림을 표시하는 함수
-    function showTransactionRequestNotification() {
+    function showTransactionRequestNotification(user) {
         // 모달 창을 생성하고 표시
         const modal = document.createElement('div');
         modal.innerHTML = `
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 거래 수락 함수
-    function acceptTransaction() {
+    function acceptTransaction(user) {
         // 여기에서 거래를 수락하는 로직을 추가
         // 예: 수락 여부를 저장하고, 다음 화면에 반영
         localStorage.setItem('transactionAccepted', 'true');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 거래 거절 함수
-    function rejectTransaction() {
+    function rejectTransaction(user) {
         // 여기에서 거래를 거절하는 로직을 추가
         // 예: 거절 여부를 저장하고, 다음 화면에 반영
         localStorage.setItem('transactionAccepted', 'false');
@@ -104,6 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 여기에서 로컬 스토리지를 활용하여 거래 정보를 전송하는 로직 추가
         // 예: 이미지를 올린 사용자에게 거래 정보 메시지를 전송
-        showTransactionRequestNotification();
+        showTransactionRequestNotification(uploaderInfo);
     }
 });

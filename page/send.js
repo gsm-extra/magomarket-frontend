@@ -14,7 +14,6 @@ function removeSlideIfEmpty(removedSlide) {
   }
 }
 
-
 function removeRecentSlide(removedSlideKey) {
   const sliderContainer = document.getElementById('slider-container');
   const slides = sliderContainer.querySelectorAll('.slide');
@@ -88,10 +87,19 @@ function setThumbnail(event) {
       document.querySelector('.slider').style.display = 'block';
       document.querySelector('.slider-button').style.display = 'block';
 
-      if (imageCount === 2) {
-        const firstSlide = document.getElementById('slide1');
-        if (firstSlide) {
-          firstSlide.style.display = 'block';
+      // 현재 슬라이드를 숨기고 다음 슬라이드를 보이도록 설정
+      const currentSlide = document.querySelector('.slide:not([style="display: none;"])');
+      if (currentSlide) {
+        currentSlide.style.display = 'none';
+        const nextSlide = document.querySelector('.slide:not([style="display: block;"])');
+        if (nextSlide) {
+          nextSlide.style.display = 'block';
+        }
+      } else {
+        // 이미지가 2개 이상인 경우, 다음 슬라이드에 style="display: none;" 속성 추가
+        const nextSlide = document.querySelector('.slide:not([style="display: block;"])');
+        if (nextSlide) {
+          nextSlide.style.display = 'none';
         }
       }
 
@@ -103,7 +111,6 @@ function setThumbnail(event) {
 
   reader.readAsDataURL(event.target.files[0]);
 }
-
 
 function removeSlide() {
   const sliderContainer = document.getElementById('slider-container');
@@ -140,7 +147,10 @@ function removeImage() {
   var images = imageContainer.querySelectorAll('img');
 
   if (images.length >= 1) {
-    const removedSlideKey = 'slide' + images.length;
+    // 새로운 키 생성
+    postnumber += 1;
+
+    const removedSlideKey = 'slide' + postnumber;
     localStorage.removeItem(removedSlideKey);
 
     const removedSlide = document.getElementById(removedSlideKey);
@@ -201,7 +211,6 @@ function removeImage() {
   }
 }
 
-
 function showSlide(n) {
   const slides = document.querySelectorAll('.slide');
 
@@ -243,3 +252,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showSlide(currentSlide);
 });
+
+const POSTIMAGE = "postimage";
+const TEXTDATA = "posttext";
+
+const savedPostNumber = "postnumber";
+const textInput = document.querySelector("#text");
+const submitButton = document.querySelector("#submit");
+
+let postnumber = parseInt(localStorage.getItem(savedPostNumber)) || 0; // Initialize with stored value or 0
+
+function submitPost() {
+  const textData = textInput.value;
+  localStorage.setItem(TEXTDATA, textData);
+
+  // 이미지 데이터를 가져와서 로컬 스토리지에 저장
+  const imageContainer = document.querySelector('div#image_container');
+  const images = imageContainer.querySelectorAll('img');
+  const imageArray = [];
+
+  images.forEach((image, index) => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    context.drawImage(image, 0, 0);
+    const imageDataUrl = canvas.toDataURL('image/png');
+    imageArray.push(imageDataUrl);
+  });
+
+  // 새로운 키 생성
+  postnumber += 1;
+
+  // 이미지 데이터와 텍스트 데이터를 저장
+  localStorage.setItem(`${POSTIMAGE}_${postnumber}`, JSON.stringify(imageArray));
+  localStorage.setItem(`${TEXTDATA}_${postnumber}`, textData);
+  localStorage.setItem(savedPostNumber, postnumber);
+
+  // 페이지 이동
+  window.location.href = "extra-home.html";
+}

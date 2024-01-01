@@ -77,7 +77,7 @@ searchInput.addEventListener("keypress", (event) => {
                 document.getElementById('profileImage').src = savedProfileImage;
             } else {
                 // 이미지가 없는 경우 기본 이미지로 설정
-                document.getElementById('profileImage').src = "file:///C:/Users/User/Pictures/bg.png";
+                document.getElementById('profileImage').src = "../images/bg.png";
             }
             
             // 페이지 로드 시 사용자 정보를 표시

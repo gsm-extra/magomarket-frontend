@@ -1,12 +1,44 @@
 let currentSlide = 0;
 let slideCount = document.querySelectorAll('.slide').length;
 
+async function resizeImage(base64Str, maxWidth, maxHeight) {
+  return new Promise((resolve) => {
+    const img = new Image();
+
+    img.onload = function () {
+      const canvas = document.createElement('canvas');
+      let width = img.width;
+      let height = img.height;
+
+      if (width > maxWidth) {
+        height *= maxWidth / width;
+        width = maxWidth;
+      }
+
+      if (height > maxHeight) {
+        width *= maxHeight / height;
+        height = maxHeight;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+
+      const resizedBase64 = canvas.toDataURL('image/png');
+      resolve(resizedBase64);
+    };
+
+    img.src = base64Str;
+  });
+}
+
 function removeSlideIfEmpty(removedSlide) {
   if (removedSlide && !removedSlide.querySelector('img')) {
     const sliderContainer = document.getElementById('slider-container');
     sliderContainer.removeChild(removedSlide);
 
-    // 추가: 슬라이드가 제거된 후에도 빈 슬라이드가 있는지 확인하고 제거
     const blankSlides = document.querySelectorAll('.slide:empty');
     blankSlides.forEach(blankSlide => {
       sliderContainer.removeChild(blankSlide);
@@ -44,28 +76,31 @@ function removeRecentSlide(removedSlideKey) {
   }
 }
 
-function setThumbnail(event) {
+async function setThumbnail(event) {
   var reader = new FileReader();
-  var imageCount; // 추가: 이미지 개수를 지역 변수로 선언
+  var imageCount;
 
-  reader.onload = function (event) {
+  reader.onload = async function (event) {
     var img = document.createElement('img');
     img.setAttribute('src', event.target.result);
     document.querySelector('#image_container').appendChild(img);
 
     imageCount = document.querySelectorAll('div#image_container img').length;
 
-    var imageDataUrl = event.target.result;
+    const imagePath = URL.createObjectURL(event.target.files[0]);
     const currentSlideKey = 'slide' + imageCount;
 
     if (imageCount === 1) {
-      // 초기에 이미지가 없는 경우에만 슬라이드 추가
       slideCount += 1;
       const sliderContainer = document.getElementById('slider-container');
       const newDiv = document.createElement('div');
       newDiv.className = 'slide';
       newDiv.id = currentSlideKey;
-      newDiv.innerHTML = '<img src="' + imageDataUrl + '" style="object-fit: contain;">';
+
+      // Resize the image before displaying
+      const resizedImagePath = await resizeImage(imagePath, 300, 300);
+
+      newDiv.innerHTML = '<img src="' + resizedImagePath + '" style="object-fit: contain;">';
       sliderContainer.appendChild(newDiv);
 
       document.querySelector('.slider').style.display = 'none';
@@ -74,20 +109,22 @@ function setThumbnail(event) {
       currentSlide++;
       showSlide(currentSlide);
     } else if (currentSlide < imageCount && imageCount != 1) {
-      // 이미지가 있는 경우에만 빈 슬라이드 추가하지 않음
       removeSlideIfEmpty(document.getElementById('slide' + (imageCount - 1)));
       slideCount += 1;
       const sliderContainer = document.getElementById('slider-container');
       const newDiv = document.createElement('div');
-    newDiv.className = 'slide';
-    newDiv.id = currentSlideKey;
-    newDiv.innerHTML = '<img src="' + imageDataUrl + '" style="object-fit: contain;">'; // object-fit 스타일 추가
-    sliderContainer.appendChild(newDiv);
+      newDiv.className = 'slide';
+      newDiv.id = currentSlideKey;
+
+      // Resize the image before displaying
+      const resizedImagePath = await resizeImage(imagePath, 300, 300);
+
+      newDiv.innerHTML = '<img src="' + resizedImagePath + '" style="object-fit: contain;">';
+      sliderContainer.appendChild(newDiv);
 
       document.querySelector('.slider').style.display = 'block';
       document.querySelector('.slider-button').style.display = 'block';
 
-      // 현재 슬라이드를 숨기고 다음 슬라이드를 보이도록 설정
       const currentSlide = document.querySelector('.slide:not([style="display: none;"])');
       if (currentSlide) {
         currentSlide.style.display = 'none';
@@ -96,7 +133,6 @@ function setThumbnail(event) {
           nextSlide.style.display = 'block';
         }
       } else {
-        // 이미지가 2개 이상인 경우, 다음 슬라이드에 style="display: none;" 속성 추가
         const nextSlide = document.querySelector('.slide:not([style="display: block;"])');
         if (nextSlide) {
           nextSlide.style.display = 'none';
@@ -147,7 +183,6 @@ function removeImage() {
   var images = imageContainer.querySelectorAll('img');
 
   if (images.length >= 1) {
-    // 새로운 키 생성
     postnumber += 1;
 
     const removedSlideKey = 'slide' + postnumber;
@@ -160,7 +195,6 @@ function removeImage() {
 
     imageContainer.removeChild(images[images.length - 1]);
 
-    // 해당하는 슬라이드 제거
     const removedSlideIndex = parseInt(removedSlideKey.replace('slide', ''), 10);
     const correspondingSlide = document.getElementById('slide' + removedSlideIndex);
     if (correspondingSlide) {
@@ -168,7 +202,6 @@ function removeImage() {
       removeSlideIfEmpty(correspondingSlide);
 
       if (correspondingSlideDisplay === 'block') {
-        // 현재 보고 있는 슬라이드가 삭제되면 첫 번째 슬라이드를 표시
         const firstSlide = document.getElementById('slide1');
         if (firstSlide) {
           showSlide(0);
@@ -177,7 +210,6 @@ function removeImage() {
       }
     }
 
-    // 삭제 후에 빈 슬라이드도 제거
     const blankSlides = document.querySelectorAll('.slide:empty');
     blankSlides.forEach(blankSlide => {
       removeSlideIfEmpty(blankSlide);
@@ -260,35 +292,27 @@ const savedPostNumber = "postnumber";
 const textInput = document.querySelector("#text");
 const submitButton = document.querySelector("#submit");
 
-let postnumber = parseInt(localStorage.getItem(savedPostNumber)) || 0; // Initialize with stored value or 0
+let postnumber = parseInt(localStorage.getItem(savedPostNumber)) || 0;
 
 function submitPost() {
   const textData = textInput.value;
   localStorage.setItem(TEXTDATA, textData);
 
-  // 이미지 데이터를 가져와서 로컬 스토리지에 저장
   const imageContainer = document.querySelector('div#image_container');
   const images = imageContainer.querySelectorAll('img');
   const imageArray = [];
 
   images.forEach((image, index) => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    canvas.width = image.width;
-    canvas.height = image.height;
-    context.drawImage(image, 0, 0);
-    const imageDataUrl = canvas.toDataURL('image/png');
-    imageArray.push(imageDataUrl);
+    const imagePath = image.src;
+
+    imageArray.push(imagePath);
   });
 
-  // 새로운 키 생성
   postnumber += 1;
 
-  // 이미지 데이터와 텍스트 데이터를 저장
   localStorage.setItem(`${POSTIMAGE}_${postnumber}`, JSON.stringify(imageArray));
   localStorage.setItem(`${TEXTDATA}_${postnumber}`, textData);
   localStorage.setItem(savedPostNumber, postnumber);
 
-  // 페이지 이동
   window.location.href = "extra-home.html";
 }

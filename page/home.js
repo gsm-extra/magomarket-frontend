@@ -54,5 +54,5 @@ if (allPostedData.length > 0) {
     localStorage.setItem('selectedImageUrl', selectedImageUrl);
 
     // 거래 페이지로 전환
-    window.location.href = 'extra-Trance.html';
+    window.location.href = 'extra-Trance.html'; // 거래 페이지의 HTML 파일 경로로 수정
   }

@@ -53,7 +53,7 @@ function setThumbnail(event) {
     img.setAttribute('src', event.target.result);
     document.querySelector('#image_container').appendChild(img);
 
-    imageCount = document.querySelectorAll('div#image_container img').length; // 수정: 이미지 개수 업데이트
+    imageCount = document.querySelectorAll('div#image_container img').length;
 
     var imageDataUrl = event.target.result;
     const currentSlideKey = 'slide' + imageCount;
@@ -65,7 +65,7 @@ function setThumbnail(event) {
       const newDiv = document.createElement('div');
       newDiv.className = 'slide';
       newDiv.id = currentSlideKey;
-      newDiv.innerHTML = '<img src="' + imageDataUrl + '">';
+      newDiv.innerHTML = '<img src="' + imageDataUrl + '" style="object-fit: contain;">';
       sliderContainer.appendChild(newDiv);
 
       document.querySelector('.slider').style.display = 'none';
@@ -79,10 +79,10 @@ function setThumbnail(event) {
       slideCount += 1;
       const sliderContainer = document.getElementById('slider-container');
       const newDiv = document.createElement('div');
-      newDiv.className = 'slide';
-      newDiv.id = currentSlideKey;
-      newDiv.innerHTML = '<img src="' + imageDataUrl + '">';
-      sliderContainer.appendChild(newDiv);
+    newDiv.className = 'slide';
+    newDiv.id = currentSlideKey;
+    newDiv.innerHTML = '<img src="' + imageDataUrl + '" style="object-fit: contain;">'; // object-fit 스타일 추가
+    sliderContainer.appendChild(newDiv);
 
       document.querySelector('.slider').style.display = 'block';
       document.querySelector('.slider-button').style.display = 'block';
